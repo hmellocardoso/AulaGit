@@ -76,6 +76,7 @@ jobs:
           if-no-files-found: ignore
 
   deploy:
+    if: always()
     needs: test
     runs-on: ubuntu-latest
     environment:
@@ -83,5 +84,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
+        if: always()
         id: deployment
         uses: actions/deploy-pages@v4
