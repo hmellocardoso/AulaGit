@@ -41,12 +41,14 @@ jobs:
           browser: chrome
 
       - name: Setup Java (for Allure CLI)
+        if: always()
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '11'
 
       - name: Generate Allure HTML
+        if: always()
         run: npx allure generate --clean allure-results -o allure-report
 
       - name: Upload Allure as artifact
@@ -57,6 +59,7 @@ jobs:
           path: allure-report
 
       - name: Upload Pages artifact (Allure)
+        if: always()
         uses: actions/upload-pages-artifact@v3
         with:
           path: allure-report
