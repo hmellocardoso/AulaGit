@@ -8,7 +8,7 @@
   "test": "cypress run",
   "allure:gen": "allure generate --clean allure-results -o allure-report",
   "allure:open": "allure open allure-report",
-  "test:allure": "bash -c \"cypress run; EC=$?; npm run allure:gen; npm run allure:open; exit $EC\""
+  "test:allure": "cypress run ; npm run allure:gen ; npm run allure:open"
 },
   "keywords": [],
   "author": "",
