@@ -53,6 +53,10 @@ jobs:
           distribution: temurin
           java-version: '11'
 
+      - name: Install Allure CLI
+        if: always()
+        run: npm i -D allure-commandline
+
       - name: Generate Allure HTML
         if: always()
         run: npx allure generate --clean allure-results -o allure-report
