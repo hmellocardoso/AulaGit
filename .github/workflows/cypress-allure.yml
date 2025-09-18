@@ -35,6 +35,12 @@ jobs:
       - name: Verify Cypress
         run: npx cypress verify
 
+      - name: Clean old Allure dirs
+        if: always()
+        run: |
+          rm -rf allure-results
+          rm -rf allure-report
+
       - name: Run Cypress (Chrome headless)
         uses: cypress-io/github-action@v6
         with:
